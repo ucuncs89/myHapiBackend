@@ -14,8 +14,9 @@ exports.responseSuccess = (h, message, data, code) => {
   return h.response(responseMessage).code(code || 200);
 };
 
-exports.responseFailed = (error, code) => {
-  switch (code) {
+exports.responseFailed = (error) => {
+  const { statusCode } = error;
+  switch (statusCode) {
     case 400:
       return Boom.badRequest(error.message);
 
@@ -24,6 +25,9 @@ exports.responseFailed = (error, code) => {
 
     case 403:
       return Boom.forbidden(error.message);
+
+    case 404:
+      return Boom.notFound(error.message);
 
     default:
       return Boom.badRequest(error.message);

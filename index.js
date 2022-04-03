@@ -24,14 +24,16 @@ const init = async () => {
       title: "Test API Documentation",
       version: Pack.version,
     },
-    security: [{ API_KEY: [] }],
+    documentationPath: "/docs",
     securityDefinitions: {
-      API_KEY: {
+      jwt: {
         type: "apiKey",
-        name: "api-key",
+        name: "Authorization",
         in: "header",
+        "x-keyPrefix": "Bearer ",
       },
     },
+    security: [{ jwt: [] }], // THIS WAS THE KEY. Without this, the Authorization headers are never sent, but with them they are!
   };
 
   await server.register([

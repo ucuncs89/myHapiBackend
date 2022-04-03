@@ -16,8 +16,17 @@
     "bcrypt": "^5.0.1",
     "hapi-swagger": "^14.2.5",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.4",
     "objection": "^3.0.1",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "prettier": "2.6.2"
   }
 }
